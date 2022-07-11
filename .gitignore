@@ -1,0 +1,10 @@
+/data/airflow/dags/*
+/data/airflow/plugins/*
+/data/hdfs
+/data/init.sql
+#/data/kafka/*
+#/data/mongo
+#/data/metabase/*
+#/data/nifi/*
+#/data/notebooks/*
+#/data/zookeeper
