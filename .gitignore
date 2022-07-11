@@ -2,9 +2,9 @@
 /data/airflow/plugins/*
 /data/hdfs
 /data/init.sql
-#/data/kafka/*
-#/data/mongo
-#/data/metabase/*
-#/data/nifi/*
-#/data/notebooks/*
-#/data/zookeeper
+/data/kafka/*
+/data/mongo
+/data/metabase/*
+/data/nifi/*
+/data/notebooks/*
+/data/zookeeper/*
