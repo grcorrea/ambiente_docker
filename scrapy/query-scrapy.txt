@@ -1,0 +1,4 @@
+response.css('.bJdtis').xpath('a[@href]') pegar link
+response.xpath('//a[contains(@href, "santander")]/@href').getall() pegar todos links
+response.xpath('//h4/@title').getall() pegar todos os titulos
+response.css('.gLneer::text').getall() pegar todos os comentarios

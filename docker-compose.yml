@@ -145,19 +145,19 @@ services:
         limits:
           memory: 500m
 
-  nginx:
-    image: grcorrea/nginx
-    hostname: nginx
-    container_name: nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./data/nginx:/etc/nginx
-    deploy:
-      resources:
-        limits:
-          memory: 500m
+#  nginx:
+#    image: grcorrea/nginx
+#    hostname: nginx
+#    container_name: nginx
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    volumes:
+#      - ./data/nginx:/etc/nginx
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 500m
   
   database:
     image: grcorrea/mysql
@@ -211,68 +211,68 @@ services:
         limits:
           memory: 500m
 
-  presto-coordinator:
-    image: grcorrea/prestodb
-    container_name: presto
-    hostname: presto
-    ports:
-      - "8080:8080"
-    depends_on:
-      - hive-server  
-    deploy:
-      resources:
-        limits:
-          memory: 500m
+#  presto-coordinator:
+#    image: grcorrea/prestodb
+#    container_name: presto
+#    hostname: presto
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - hive-server  
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 500m
 
-  hbase-master:
-    image: grcorrea/hbase-master
-    container_name: hbase-master
-    hostname: hbase-master
-    env_file:
-      - ./data/hbase/hbase-standalone.env
-    environment:
-      SERVICE_PRECONDITION: "namenode:50070 datanode:50075 zookeeper:2181"
-    ports:
-      - 16010:16010
-    depends_on:
-      - namenode
-    deploy:
-      resources:
-        limits:
-          memory: 500m
+#  hbase-master:
+#    image: grcorrea/hbase-master
+#    container_name: hbase-master
+#    hostname: hbase-master
+#    env_file:
+#      - ./data/hbase/hbase-standalone.env
+#    environment:
+#      SERVICE_PRECONDITION: "namenode:50070 datanode:50075 zookeeper:2181"
+#    ports:
+#      - 16010:16010
+#    depends_on:
+#      - namenode
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 500m
     
-  mongo:
-    image: grcorrea/mongo
-    container_name: mongo
-    hostname: mongo
-    #restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-    ports:
-      - 27017:27017
-    volumes:
-      - ./data/mongo:/data
-    deploy:
-      resources:
-        limits:
-          memory: 500m
+#  mongo:
+#    image: grcorrea/mongo
+#    container_name: mongo
+#    hostname: mongo
+#    #restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+#    ports:
+#      - 27017:27017
+#    volumes:
+#      - ./data/mongo:/data
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 500m
  
-  mongo-express:
-    image: grcorrea/mongo-express
-    container_name: mongo_express
-    hostname: mongo_express
-    #restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_SERVER: mongo
-    deploy:
-      resources:
-        limits:
-          memory: 200m
+#  mongo-express:
+#    image: grcorrea/mongo-express
+#    container_name: mongo_express
+#    hostname: mongo_express
+#    #restart: always
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+#      ME_CONFIG_MONGODB_SERVER: mongo
+#    deploy:
+#      resources:
+#        limits:
+#          memory: 200m
  
   kafkamanager:
     image: grcorrea/kafkamanager
